@@ -22,23 +22,7 @@ void FogNode::initialize()
 
 void FogNode::handleMessage(cMessage *msg)
 {
-    if (!msg->isSelfMessage()){
-
-           addToQueue(msg);
-
-           if (!scheduleEvent->isScheduled()){
-              scheduleAt(simTime()+ processing_delay, scheduleEvent); //wait until get last message in queue
-           }
-       }
-       else if (msg == scheduleEvent){
-
-           if (!waitingMessagePool.empty()) {
-               msg = waitingMessagePool.front();
-               waitingMessagePool.pop(); //take the message
-               forwardMessage(msg);
-               scheduleAt(simTime()+ processing_delay, scheduleEvent);
-           }
-       }
+    send(msg,"out3");
 }
 void FogNode::addToQueue(cMessage *msg)
 {
@@ -69,6 +53,7 @@ void FogNode::forwardMessage(cMessage *msg, BOOLEAN queue_full){
     if (!queue_full)
     {
         std::string outputGateName = functions.getDestGate(std::string(this->getName()), std::string(msg->getArrivalGate()->getName()), msg);
+        outputGateName="out3";
         send(msg, outputGateName.c_str());
         return;
     }

@@ -19,26 +19,7 @@ void ServerNode::initialize()
 void ServerNode::handleMessage(cMessage *msg)
 {
 
-
-    if (! msg->isSelfMessage() ){
-        addToQueue(msg);
-
-        if (!scheduleEvent->isScheduled())
-                    scheduleAt(simTime()+processing_delay, scheduleEvent); //wait until get last message in queue
-
-    }
-    else if (msg == scheduleEvent && !waitingMessagePool.empty()){
-
-
-            msg = waitingMessagePool.front();
-            waitingMessagePool.pop(); //take the message
-            forwardMessage(msg);
-            scheduleAt(simTime()+processing_delay, scheduleEvent);
-    }
-        else{
-
-
-        }
+delete msg;
 
 
 }

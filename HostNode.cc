@@ -64,20 +64,9 @@ void HostNode::handleMessage(cMessage *msg)
 void HostNode::GenerateNewMesssage()
 {
     int uniqueID = GlobalID::getNextID();
-    std::string msgcontent = username+" encrypted image-" + std::to_string(uniqueID) + " from " + std::string(this->getName());
-    Image *packet1 = new Image(msgcontent.c_str());
-    packet1->setUniqueID(uniqueID);
-    packet1->setContent((msgcontent).c_str());
-    packet1->setByteLength(4);  // Example packet size 1Byte
-    bubble((username+" image id: " + std::to_string(uniqueID)).c_str());
+   cMessage *new_message= new cMessage(("message " + std::to_string(uniqueID)).c_str()) ;
+            send(new_message, "out");
 
-    if (gate("out")->getTransmissionChannel()->isBusy()) {
-        delete packet1;
-    }
-    else{
-            send(packet1, "out");
-            sum_sent_packets++;
-    }
 }
 
 

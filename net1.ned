@@ -5,111 +5,132 @@ package cloudsim;
 
 network net1
 {
-    @display("bgb=866,571;bgl=2");
+    @display("bgb=964.85004,780.85004;bgl=2");
 
 
 
     submodules:
-         Server: ServerNode {
-            @display("p=414,33");
-           
+        TaskBroker: Broker {
+            @display("p=419.75,250.70001");
 
-}
-       
-        pc1: HostNode {
-            @display("p=33,406");
-        }
-        pc2: HostNode {
-            
-            @display("p=111,406");
+
         }
 
-        pc3: HostNode {
-            @display("p=194,406");
+        User1: HostNode {
+            @display("p=37.95,715.30005");
         }
-        pc4: HostNode {
-            @display("p=278,406");
+        User2: HostNode {
+
+            @display("p=116.15,715.30005");
         }
-        pc5: HostNode {
-            @display("p=357,406");
+
+        User3: HostNode {
+            @display("p=198.95001,715.30005");
         }
-        pc6: HostNode {
-            @display("p=442,406");
+        User4: HostNode {
+            @display("p=281.75,715.30005");
         }
-        pc7: HostNode {
-            @display("p=543,406");
+        User5: HostNode {
+            @display("p=362.25,715.30005");
         }
-        pc8: HostNode {
-            @display("p=642,406");
+        User6: HostNode {
+            @display("p=447.35,715.30005");
         }
-        pc9: HostNode {
-            @display("p=730,406");
+        User7: HostNode {
+            @display("p=548.55,715.30005");
         }
-        pc10: HostNode {
-            @display("p=807,406");
+        User8: HostNode {
+            @display("p=647.45,715.30005");
         }
-        fogNode1: FogNode {
-            @display("p=81,288");
+        User9: HostNode {
+            @display("p=734.85004,715.30005");
         }
-        fogNode2: FogNode {
-            @display("p=233,288");
+        User10: HostNode {
+            @display("p=811.9,715.30005");
         }
-        fogNode3: FogNode {
-            @display("p=414,288");
+        Router1: FogNode {
+            @display("p=86.25,598");
         }
-        fogNode4: FogNode {
-            @display("p=594,288");
+        Router2: FogNode {
+            @display("p=238.05,598");
         }
-        fogNode5: FogNode {
-            @display("p=778,288");
+        Router3: FogNode {
+            @display("p=419.75,598");
         }
-       
+        Router4: FogNode {
+            @display("p=599.15,598");
+        }
+        Router5: FogNode {
+            @display("p=783.15,598");
+        }
+
+        DataCenter1: ServerNode {
+            @display("p=85.100006,71.3");
+
+
+        }
+
+        DataCenter2: ServerNode {
+            @display("p=242.65001,71.3");
+
+
+        }
+
+        DataCenter3: ServerNode {
+            @display("p=418.6,71.3");
+
+
+        }
+
+        DataCenter4: ServerNode {
+            @display("p=583.05005,71.3");
+
+
+        }
+
+        DataCenter5: ServerNode {
+            @display("p=787.75,71.3");
+
+
+        }
+
     connections:
-        fogNode1.in1 <-- hostsFogChannel <-- pc1.out;
-        fogNode1.out1 --> hostsFogChannel --> pc1.in;
-        fogNode1.in2 <-- hostsFogChannel <-- pc2.out;
-        fogNode1.out2 --> hostsFogChannel --> pc2.in;
-        fogNode1.in3 <-- fogsServerChannel <-- Server.out1;
-        fogNode1.out3 --> fogsServerChannel --> Server.in1;
-        fogNode1.in4 <-- fogFogChannel <-- fogNode2.out4;
-        fogNode1.out4 --> fogFogChannel --> fogNode2.in4;
-        fogNode1.in5 <-- fogFogChannel <-- fogNode1.out5;
+        Router1.in1 <-- hostsFogChannel <-- User1.out;
+        Router1.out1 --> hostsFogChannel --> User1.in;
+        Router1.in2 <-- hostsFogChannel <-- User2.out;
+        Router1.out2 --> hostsFogChannel --> User2.in;
+        Router1.in3 <-- fogsServerChannel <-- TaskBroker.out1;
+        Router1.out3 --> fogsServerChannel --> TaskBroker.in1;
+        Router2.in1 <-- hostsFogChannel <-- User3.out;
+        Router2.out1 --> hostsFogChannel --> User3.in;
+        Router2.in2 <-- hostsFogChannel <-- User4.out;
+        Router2.out2 --> hostsFogChannel --> User4.in;
+        Router2.in3 <-- fogsServerChannel <-- TaskBroker.out2;
+        Router2.out3 --> fogsServerChannel --> TaskBroker.in2;
+        Router3.in1 <-- hostsFogChannel <-- User5.out;
+        Router3.out1 --> hostsFogChannel --> User5.in;
+        Router3.in2 <-- hostsFogChannel <-- User6.out;
+        Router3.out2 --> hostsFogChannel --> User6.in;
+        Router3.in3 <-- fogsServerChannel <-- TaskBroker.out3;
+        Router3.out3 --> fogsServerChannel --> TaskBroker.in3;
+        Router4.in1 <-- hostsFogChannel <-- User7.out;
+        Router4.out1 --> hostsFogChannel --> User7.in;
+        Router4.in2 <-- hostsFogChannel <-- User8.out;
+        Router4.out2 --> hostsFogChannel --> User8.in;
+        Router4.in3 <-- fogsServerChannel <-- TaskBroker.out4;
+        Router4.out3 --> fogsServerChannel --> TaskBroker.in4;
+        Router5.in1 <-- hostsFogChannel <-- User9.out;
+        Router5.out1 --> hostsFogChannel --> User9.in;
+        Router5.in2 <-- hostsFogChannel <-- User10.out;
+        Router5.out2 --> hostsFogChannel --> User10.in;
+        Router5.in3 <-- fogsServerChannel <-- TaskBroker.out5;
+        Router5.out3 --> fogsServerChannel --> TaskBroker.in5;
+        TaskBroker.out6 --> fogsServerChannel --> DataCenter1.in1;
+        TaskBroker.out7 --> fogsServerChannel --> DataCenter2.in1;
+        TaskBroker.out8 --> fogsServerChannel --> DataCenter3.in1;
+        TaskBroker.out9 --> fogsServerChannel --> DataCenter4.in1;
+        TaskBroker.out10 --> fogsServerChannel --> DataCenter5.in1;
 
-
-        fogNode2.in1 <-- hostsFogChannel <-- pc3.out;
-        fogNode2.out1 --> hostsFogChannel --> pc3.in;
-        fogNode2.in2 <-- hostsFogChannel <-- pc4.out;
-        fogNode2.out2 --> hostsFogChannel --> pc4.in;
-        fogNode2.in3 <-- fogsServerChannel <-- Server.out2;
-        fogNode2.out3 --> fogsServerChannel --> Server.in2;
-        fogNode2.in5 <-- fogFogChannel <-- fogNode3.out4;
-        fogNode2.out5 --> fogFogChannel --> fogNode3.in4;
-
-        fogNode3.in1 <-- hostsFogChannel <-- pc5.out;
-        fogNode3.out1 --> hostsFogChannel --> pc5.in;
-        fogNode3.in2 <-- hostsFogChannel <-- pc6.out;
-        fogNode3.out2 --> hostsFogChannel --> pc6.in;
-        fogNode3.in3 <-- fogsServerChannel <-- Server.out3;
-        fogNode3.out3 --> fogsServerChannel --> Server.in3;
-        fogNode3.in5 <-- fogFogChannel <-- fogNode4.out4;
-        fogNode3.out5 --> fogFogChannel --> fogNode4.in4;
-
-        fogNode4.in1 <-- hostsFogChannel <-- pc7.out;
-        fogNode4.out1 --> hostsFogChannel --> pc7.in;
-        fogNode4.in2 <-- hostsFogChannel <-- pc8.out;
-        fogNode4.out2 --> hostsFogChannel --> pc8.in;
-        fogNode4.in3 <-- fogsServerChannel <-- Server.out4;
-        fogNode4.out3 --> fogsServerChannel --> Server.in4;
-        fogNode4.in5 <-- fogFogChannel <-- fogNode5.out4;
-        fogNode4.out5 --> fogFogChannel --> fogNode5.in4;
-
-        fogNode5.in1 <-- hostsFogChannel <-- pc9.out;
-        fogNode5.out1 --> hostsFogChannel --> pc9.in;
-        fogNode5.in2 <-- hostsFogChannel <-- pc10.out;
-        fogNode5.out2 --> hostsFogChannel --> pc10.in;
-        fogNode5.in3 <-- fogsServerChannel <-- Server.out5;
-        fogNode5.out3 --> fogsServerChannel --> Server.in5;
-        fogNode5.in5 <-- fogFogChannel <-- fogNode5.out5;
 
 
 }
