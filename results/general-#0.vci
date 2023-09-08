@@ -1,0 +1,39 @@
+                                                                
+version 3
+run general-0-20230907-09:44:07-7516
+attr configname general
+attr datetime 20230907-09:44:07
+attr datetimef 20230907-094407
+attr experiment general
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network cloudsim.net1
+attr processid 7516
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network cloudsim.net1
+config sim-time-limit 5s
+config **.pc*.messagesGenerateLowerBound "100.0e-3  //10ms"
+config **.pc*.messagesGenerateUpperBound "150.0e-3   //150ms"
+config **.fogNode*.queueSize "1 \t\t\t\t// set queue size to 5 for example"
+config **.fogNode*.processingDelay "20.0e-3  // 10 ms delay for example"
+config **.Server.processingDelay 10.0e-3
+config **.Server.queueSize 100
+config **.Server.wattsConsumePerSecond 40
+
+vector 0 net1.pc2 "Messages Delay" ETV
+vector 1 net1.pc6 "Messages Delay" ETV
+vector 2 net1.pc4 "Messages Delay" ETV
+vector 3 net1.pc9 "Messages Delay" ETV
+vector 4 net1.pc7 "Messages Delay" ETV
+0	1079 67 49 61 0.187440739115 0.207440739115 2 45.22745191 77.798508296 123.025960206 8098.1302993541
+1	1146 68 53 62 0.190138232519 0.210138232519 2 47.775645656 78.960047699 126.735693355 8517.201450476
+2	1214 34 56 56 0.195759532249 0.195759532249 1 52.862251257 52.862251257 52.862251257 2794.4176079582
+3	1248 32 80 80 0.251182867839 0.251182867839 1 130.000128 130.000128 130.000128 16900.033280016
+4	1280 34 89 89 0.261182867839 0.261182867839 1 133.93870897 133.93870897 133.93870897 17939.57776055
